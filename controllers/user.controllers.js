@@ -38,7 +38,6 @@ const userPost = async (req, res) => {
     await usuario.save();
 
     res.json({
-        message: 'post API - controlador',
         usuario
     })
 }
@@ -76,16 +75,12 @@ const userPut = async (req, res) => {
 const userDelete = async (req, res) => {
     const { id } = req.params;
 
-    //fisicamente lo borramos
-    // const usuario = await User.findByIdAndDelete(id)
-
     //cambiar el estado a false
     const usuario = await User.findByIdAndUpdate(id, { status: false })
 
-    res.json({
-
+    res.json(
         usuario
-    })
+    )
 }
 
 
